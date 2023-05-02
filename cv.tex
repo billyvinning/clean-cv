@@ -1,0 +1,158 @@
+\documentclass{cv}
+
+% Import packages
+\usepackage[english]{babel} % Needed for lipsum.
+\usepackage{fontspec} % To specify fonts.
+\usepackage{lipsum} % For placeholder text.
+
+% Set up document
+\setauthorname{Jane Doe} % Your name.
+\setmainfont{TeX Gyre Termes}
+\setsansfont{Free Sans}
+
+\hypersetup{
+  colorlinks=false,
+  hidelinks,
+  pdfauthor=\theauthorname,
+  pdftitle={CV of \theauthorname}
+}
+
+% Begin document
+\begin{document}
+
+
+\cvheader
+{Full-Stack Engineer} % Your job title.
+{
+	{\homepage{myhomepage.com}} % See cv.cls for other contact fields.
+	{\email{user@domain.com}}
+	{\phone{+12 3456891}}
+	{\github{github.com/username}}
+	{\location{City, Country}}
+	{\linkedin{linkedin.com/in/user-name}}
+} % Your contact details.
+{\lipsum[1][1-5]} % Your personal statement.
+
+\begin{skills} % Refer to FontAwesome5 for more icons.
+	\faitem{\faCode} \lipsum[4][1]
+	\faitem{\faLinux} \lipsum[4][2]
+	\faitem{\faDatabase} \lipsum[4][3]
+	\faitem{\faChartBar} \lipsum[4][4]
+	\columnbreak
+	\faitem{\faGit*} \lipsum[4][5]
+	\faitem{\faProjectDiagram} \lipsum[4][6]
+	\faitem{\faCogs} \lipsum[4][7]
+	\faitem{\faCloud} \lipsum[4][8]
+\end{skills}
+
+
+\begin{career}
+    {\setlist{itemsep=\fill} % Ensures career items are as spaced out as possible.
+    \begin{careersection}{Projects}
+        \careeritem
+	{My First Interesting Project} % Item title.
+        {2023} % Item right detail.
+        {} % Item italicised below detail.
+        { % Item description.
+        \begin{careeritemdetails}
+	\item \lipsum[5][1-2] 
+	\item \lipsum[5][3-4]
+	\item \lipsum[5][4-5]
+        \end{careeritemdetails}
+        }
+        \careeritem
+	{My Second Interesting Project} % Item title.
+        {2022--Present} % Item right detail.
+        {} % Item italicised below detail.
+        { % Item description.
+        \begin{careeritemdetails}
+	\item \lipsum[6][1-2] 
+	\item \lipsum[6][3-4]
+	\item \lipsum[6][5-6]
+        \end{careeritemdetails}
+        }
+        \careeritem
+	{My Third Interesting Project} % Item title.
+        {2019--2020} % Item right detail.
+        {} % Item italicised below detail.
+        { % Item description.
+        \begin{careeritemdetails}
+	\item \lipsum[7][1-2] 
+	\item \lipsum[7][3-4]
+	\item \lipsum[7][5-6]
+        \end{careeritemdetails}
+        }
+        \careeritem
+	{My Fourth Interesting Project} % Item title.
+        {2018} % Item right detail.
+        {} % Item italicised below detail.
+        { % Item description.
+        \begin{careeritemdetails}
+	\item \lipsum[8][1-2] 
+	\item \lipsum[8][3-4]
+	\item \lipsum[8][5-6]
+        \end{careeritemdetails}
+        }
+    \end{careersection}
+    }
+    \columnbreak
+    \begin{careersection}{Experience}
+        \careeritem
+        {First Previous Job Title}
+        {2022--Present}
+        {Company, City of first job}
+        {
+        \begin{careeritemdetails}	
+	    \item \lipsum[9][1-2] 
+	    \item \lipsum[9][3-4]
+        \end{careeritemdetails}
+        }
+        \careeritem
+        {Second Previous Job Title}
+        {2019--2022}
+        {Company, City of second job}
+        {
+        \begin{careeritemdetails}	
+	    \item \lipsum[10][1-2] 
+	    \item \lipsum[10][3-4]
+        \end{careeritemdetails}
+        }
+    \end{careersection}
+    \vfill
+    \begin{careersection}{Education}
+        \careeritem
+        {Second Degree}
+        {2016--2018}
+        {University, City}
+        {
+        \begin{careeritemdetails}	
+	    \item \lipsum[11][1-2]
+        \end{careeritemdetails}
+        }
+        \careeritem
+        {First Degree}
+        {2013--2016}
+        {University, City}
+        {
+        \begin{careeritemdetails}	
+	    \item \lipsum[12][1-2]
+        \end{careeritemdetails}
+        }
+    \end{careersection}
+    \vfill
+    \begin{careersection}{Certifications}
+        \careeritem
+	{First Certification}
+        {2022}
+        {Vendor One}
+        {}
+        \careeritem
+	{Second Certification}
+        {2021}
+        {Vendor Two}
+        {}
+    \end{careersection}
+
+\end{career}
+
+\end{document}
