@@ -1,10 +1,12 @@
 # clean-cv
 
-A modern but conservative CV/resume template for LaTeX.
+A modern but conservative CV/resume and cover letter template for LaTeX.
 
 ## Preview
 
 [![CV Preview](https://raw.githubusercontent.com/billyvinning/clean-cv/master/example/cv.png)](https://raw.githubusercontent.com/billyvinning/clean-cv/master/example/cv.pdf)
+
+[![Cover Letter Preview](https://raw.githubusercontent.com/billyvinning/clean-cv/master/example/coverletter.png)](https://raw.githubusercontent.com/billyvinning/clean-cv/master/example/coverletter.pdf)
 
 ## Build
 
@@ -12,7 +14,7 @@ The document is compiled with `lualatex`. To build the document, execute the fol
 
 ```make clean && make```
 
-The output document, named `cv.pdf`, will appear at the root of the package directtory.
+The output documents, `cv.pdf` and `coverletter.pdf`, will appear at the root of the package directtory.
 
 ## License
 

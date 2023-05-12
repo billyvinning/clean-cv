@@ -1,0 +1,87 @@
+\RequirePackage{xcolor}
+\RequirePackage[fixed]{fontawesome5}
+\RequirePackage{etoolbox}
+\RequirePackage{fontspec}
+\RequirePackage{hyperref}  
+
+\newcommand\theauthorname{Jane Doe}
+\newcommand\setauthorname[1]{\renewcommand\theauthorname{#1}}
+
+\newcommand\thejobtitle{Full-Stack Engineer}
+\newcommand\setjobtitle[1]{\renewcommand\thejobtitle{#1}}
+
+
+\newcommand*\thecontactinfo{
+    \homepage{myhomepage.com},
+    \email{user@domain.com},
+    \phone{+12 3456891},
+    \github{github.com/username},
+    \mylocation{City, Country},
+    \linkedin{linkedin.com/in/user-name}%
+}
+\newcommand\setcontactinfo[1]{\renewcommand*\thecontactinfo{#1}}
+
+
+\newcommand\setheadingcolour[1]{
+	\definecolor{heading}{HTML}{#1}
+	\colorlet{heading}{heading}
+}
+\newcommand\seticoncolour[1]{
+	\definecolor{icon}{HTML}{#1}
+	\colorlet{icon}{icon}
+}
+
+\setheadingcolour{00213D}
+\seticoncolour{003666}
+
+\newcommand\maintitle{\noindent {\Huge \textsf{\textbf{{\color{heading} \theauthorname} |} \thejobtitle}}}
+
+\newif\ifrightcontact 
+\newif\iffirstcontactline
+
+
+\newcommand{\mylistitem}[1]{%
+    \ifrightcontact
+        \rightcontactfalse
+        \hfill #1%
+    \else
+        \rightcontacttrue
+        \iffirstcontactline
+            \noindent #1%
+            \firstcontactlinefalse
+        \else
+            \newline \noindent #1%
+        \fi
+    \fi
+}
+
+\newcommand\cvcontacts{%
+    \rightcontactfalse
+    \firstcontactlinetrue
+    \noindent\expandafter\forcsvlist\expandafter\mylistitem\expandafter{\thecontactinfo}
+}
+
+\newcommand\cvsummary[1]{\textit{\large #1}}
+
+\newcommand\generalheader{
+    \maintitle
+
+    \bigskip
+    \noindent \cvcontacts
+}
+
+\newcommand{\faicon}[1]{\mbox{\textcolor{icon}{#1}}}
+\newcommand{\fainfo}[2]{\faicon{#1}\hspace{0.5em}#2}
+\newcommand{\faitem}[1]{\item[\faicon{#1}]}
+
+\newcommand{\email}[1]{\fainfo{\faAt}{#1}}
+\newcommand{\phone}[1]{\fainfo{\faPhone}{#1}}
+\newcommand{\homepage}[1]{\fainfo{\faLink}{\href{https://www.#1}{#1}}}
+\newcommand{\linkedin}[1]{\fainfo{\faLinkedin}{\href{https://www.#1}{#1}}}
+\newcommand{\github}[1]{\fainfo{\faGithub}{\href{https://www.#1}{#1}}}
+\newcommand{\orcid}[1]{\fainfo{\aiOrcid}{\href{https://www.#1}{#1}}}
+\newcommand{\mylocation}[1]{\fainfo{\faMapMarker*}{#1}}
+\newcommand{\pubs}[1]{\fainfo{\faFlask}{\href{https://www.#1}{#1}}}
+\newcommand{\kaggle}[1]{\fainfo{\faKaggle}{\href{https://www.#1}{#1}}}
+
+\input{cv-info.tex}

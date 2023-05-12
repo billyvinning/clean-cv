@@ -1,0 +1,44 @@
+\documentclass{coverletter}
+
+\usepackage{lipsum}
+\usepackage[UKenglish]{babel}% http://ctan.org/pkg/babel
+\usepackage[UKenglish]{isodate}% http://ctan.org/pkg/isodate
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks=false,
+  hidelinks,
+  pdfauthor=\theauthorname,
+  pdftitle={Cover Letter of \theauthorname}
+}
+
+\longindentation=0pt
+\signature{\theauthorname}
+\address{
+    4 Eastbourne Rd \\
+    Collier's End \\
+    SG11 8AX \\
+    United Kingdom
+}
+
+\begin{document}
+
+\raggedbottom
+
+\begin{letter}{
+    Joe Bloggs \\
+    49 Leicester Road \\
+    Avington \\
+    United Kingdom
+}
+    \generalheader
+    \newline
+    \bigskip
+
+    \opening{Dear Mr. Bloggs,}
+        \lipsum[1-3]
+    \closing{Yours sincerely,}
+    \encl{Curriculum vitae}
+\end{letter}
+
+\end{document}
