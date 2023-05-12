@@ -5,7 +5,7 @@
 \RequirePackage[a4paper,margin=0.5in,bottom=0.8in]{geometry}
 \RequirePackage{multicol}
 \RequirePackage{enumitem}
-\RequirePackage{cleancv}
+\RequirePackage{src/cleancv}
 
 \pagestyle{empty}
 
