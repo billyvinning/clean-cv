@@ -2,17 +2,24 @@
 
 A modern but conservative CV/resume and cover letter template for LaTeX.
 
-## Preview
+> **Notice: Expect breaking changes between releases, please consider forking if you find this project is of use to you.**
 
-[![CV Preview](https://raw.githubusercontent.com/billyvinning/clean-cv/master/example/cv.png)](https://raw.githubusercontent.com/billyvinning/clean-cv/master/example/cv.pdf)
+## Previews
+| CV/Resume |  Cover Letter |
+| :---:|:---: |
+| [![CV Preview](https://raw.githubusercontent.com/billyvinning/clean-cv/master/example/cv.png "CV/Resume")](https://raw.githubusercontent.com/billyvinning/clean-cv/master/example/cv.pdf) | [![Cover Letter Preview](https://raw.githubusercontent.com/billyvinning/clean-cv/master/example/coverletter.png)](https://raw.githubusercontent.com/billyvinning/clean-cv/master/example/coverletter.pdf "Cover Letter") | 
 
-[![Cover Letter Preview](https://raw.githubusercontent.com/billyvinning/clean-cv/master/example/coverletter.png)](https://raw.githubusercontent.com/billyvinning/clean-cv/master/example/coverletter.pdf)
+## Usage
+
+Edit the files `cv.tex`, `coverletter.tex` and `cv-info.tex`.
 
 ## Build
 
 The document is compiled with `lualatex`. To build the document, execute the following at the root of the package directory:
 
-```make clean && make```
+```
+make clean && make
+```
 
 The output documents, `cv.pdf` and `coverletter.pdf`, will appear at the root of the package directtory.
 
