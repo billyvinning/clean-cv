@@ -9,7 +9,13 @@
 
 \pagestyle{empty}
 
+\def\dotfill#1{\cleaders\hbox to #1{.}\hfill}
+\newcommand\dotline[2][.5em]{\leavevmode\hbox to #2{\dotfill{#1}\hfil}}
+
 \def\cvcolumnsep{24pt}
+\def\dotsize{8pt}
+
+\newcommand\mydotfill{\normalsize{\dotfill{\dotsize}}}
 
 \newcommand\thepersonalsummary{\null}
 \newcommand\setpersonalsummary[1]{\renewcommand\thepersonalsummary{#1}}
@@ -22,10 +28,11 @@
     \noindent \cvsummary{\thepersonalsummary}
 
     \bigskip
+    \bigskip
 }
 
 \newenvironment{skills}{
-    \noindent {\bf \sf \Large \color{heading} Skills}
+    \noindent {\bf \sf \Large \color{heading} Skills\mydotfill}
     \vspace{-\baselineskip}
     \medskip
     \setlength\columnsep{\cvcolumnsep}
@@ -48,7 +55,7 @@
 
 
 \newenvironment{careersection}[1]{
-    \noindent {\bf \sf \Large \color{heading} #1}
+    \noindent {\bf \sf \Large \color{heading} #1\mydotfill}
     \begin{itemize}[label={},leftmargin=10pt]
 }{
     \end{itemize}

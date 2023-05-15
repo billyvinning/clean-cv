@@ -34,7 +34,23 @@
 \setheadingcolour{00213D}
 \seticoncolour{003666}
 
-\newcommand\maintitle{\noindent {\Huge \textsf{\textbf{{\color{heading} \theauthorname} |} \thejobtitle}}}
+\newcommand\authortitle{%
+    {
+        \Huge \textsf{\textbf{{\color{heading} \hspace*{-2.8mm} \theauthorname}}}
+    }
+}
+\newcommand\jobtitle{%
+    {
+        \Large \textsf{\thejobtitle}
+    }
+}
+
+\newcommand\maintitle{
+    \noindent \authortitle
+    \medskip
+
+    \noindent \jobtitle
+}
 
 \newif\ifrightcontact 
 \newif\iffirstcontactline
@@ -64,10 +80,14 @@
 \newcommand\cvsummary[1]{\textit{\large #1}}
 
 \newcommand\generalheader{
-    \maintitle
+    {
+        \setlength{\parskip}{0pt}
+        \maintitle
+    
+        \bigskip 
 
-    \bigskip
-    \noindent \cvcontacts
+        \noindent \cvcontacts \newline
+    }
 }
 
 \newcommand{\faicon}[1]{\mbox{\textcolor{icon}{#1}}}
