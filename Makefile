@@ -4,10 +4,17 @@ CV_OUTPUT := $(CV_FNAME).pdf
 COVERLETTER_FNAME := coverletter
 COVERLETTER_TARGET := $(COVERLETTER_FNAME).tex
 COVERLETTER_OUTPUT := $(COVERLETTER_FNAME).pdf
+EXAMPLE_DIR := example
 EXE := lualatex
 OPTS := -halt-on-error
 ENV := TEXINPUTS="./src/:"
 all: ${CV_OUTPUT} ${COVERLETTER_OUTPUT}
+
+update-examples:
+	cp ${CV_OUTPUT} ${EXAMPLE_DIR}/${CV_OUTPUT}
+	cp ${COVERLETTER_OUTPUT} ${EXAMPLE_DIR}/${COVERLETTER_OUTPUT}
+	convert -flatten -density 300 ${CV_OUTPUT} -quality 100 ${EXAMPLE_DIR}/${CV_FNAME}.png
+	convert -flatten -density 300 ${COVERLETTER_OUTPUT} -quality 100 ${EXAMPLE_DIR}/${COVERLETTER_FNAME}.png
 
 clean:
 	rm -f $(patsubst %,$(CV_FNAME).%,log aux pdf out)
