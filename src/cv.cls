@@ -2,10 +2,11 @@
 \ProvidesClass{cv}[2014/08/16 CV class]
 \LoadClass[a4paper,10pt]{article}
 
-\RequirePackage[a4paper,margin=0.5in,bottom=0.8in]{geometry}
+\RequirePackage[a4paper,margin=0.5in,bottom=0.5in]{geometry}
 \RequirePackage{multicol}
 \RequirePackage{enumitem}
 \RequirePackage{cleancv}
+\RequirePackage{ifthen}
 
 \pagestyle{empty}
 
@@ -17,18 +18,22 @@
 
 \newcommand\mydotfill{\normalsize{\dotfill{\dotsize}}}
 
+
+\newboolean{haspersonalsummary}
+\setboolean{haspersonalsummary}{false}
 \newcommand\thepersonalsummary{\null}
-\newcommand\setpersonalsummary[1]{\renewcommand\thepersonalsummary{#1}}
+\newcommand\setpersonalsummary[1]{%
+	\renewcommand\thepersonalsummary{#1}
+	\setboolean{haspersonalsummary}{true}
+}
 
 
-\newcommand\cvheader{
-    \generalheader
-
-    \bigskip
-    \noindent \cvsummary{\thepersonalsummary}
-
-    \bigskip
-    \bigskip
+\newcommand\cvheader{%
+    \generalheader    
+    \ifthenelse{\boolean{haspersonalsummary}}{%
+	\bigskip
+	\noindent \cvsummary{\thepersonalsummary}
+     }{}%
 }
 
 \newenvironment{skills}{
@@ -38,10 +43,11 @@
     \setlength\columnsep{\cvcolumnsep}
     \begin{multicols}{2}
         \begin{itemize}[noitemsep,leftmargin=19pt]
+	\raggedright
 }{
         \end{itemize}
     \end{multicols}
-    \medskip
+    %\medskip
 }   
 
 
@@ -57,12 +63,13 @@
 \newenvironment{careersection}[1]{
     \noindent {\bf \sf \Large \color{heading} #1\mydotfill}
     \begin{itemize}[label={},leftmargin=10pt]
+    \raggedright
 }{
     \end{itemize}
 }
 
 \newenvironment{careeritemdetails}
-{\vspace{-\baselineskip}\begin{itemize}[noitemsep,label=\textbullet,nosep,leftmargin=10pt]}
+{\vspace{-\baselineskip}\begin{itemize}[noitemsep,label=\textbullet,nosep,leftmargin=10pt]\raggedright}
 {\end{itemize}}
 
 
@@ -78,6 +85,22 @@
 		\item {\sf #1} \hfill #2 \newline {\it #3}
         \else
 		\item {\sf #1} \hfill #2 \newline {\it #3} \newline #4
+        \fi
+    \fi
+}
+
+\newcommand\tightcareeritem[4]{
+    \ifx&#3&
+        \ifx&#4&
+		\item {\sf #1} \hfill #2
+        \else
+		\item {\sf #1} \hfill #2 \newline #4
+        \fi
+    \else
+        \ifx&#4&
+		\item {\bf \sf #3} {\sf #1} \hfill #2
+        \else
+		\item {\bf \sf #3} {\sf #1} \hfill #2 \newline #4
         \fi
     \fi
 }
